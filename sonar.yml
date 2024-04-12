@@ -1,0 +1,21 @@
+version: 0.2
+phases:
+ install:
+   runtime-versions:
+     java: corretto17
+ pre_build:
+   commands:
+     - export SONAR_SCANNER_VERSION=5.0.1.3006
+     - export SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux
+     - curl --create-dirs -sSLo $HOME/.sonar/sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$SONAR_SCANNER_VERSION-linux.zip
+     - unzip -o $HOME/.sonar/sonar-scanner.zip -d $HOME/.sonar/
+     - export PATH=$SONAR_SCANNER_HOME/bin:$PATH
+     - export SONAR_SCANNER_OPTS="-server"
+ build:
+   commands:
+     - set -e
+     - export SONAR_SCANNER_OPTS="-Xmx2g" # Set maximum heap size to 2GB
+     - sonar-scanner -X -Dsonar.login=e822d9ee1f4839acc6648926338dec75ac5d303d -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=venky9689_PETCARE -Dsonar.organization=venky9689 -DgeneratePom=true  -Dsonar.exclusions=**/staticfiles/**,**/lib/**,**/static/**,**/my_petcare/**,**/sonar.yml
+     - sleep 5
+     - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=venky9689_PETCARE >result.json
+     - cat result.json
