@@ -1,9 +1,13 @@
-from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
 from .models import Service
 from .models import BookedService
 from django.urls import reverse
 from django.shortcuts import get_object_or_404
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
+from .forms import CustomUserCreationForm
 
 def home(request):
     return render(request, 'my_petcare/index.html')
@@ -24,17 +28,6 @@ def booking(request):
 
 def contact(request):
     return render(request, 'my_petcare/contact.html')
-    
-
-
-#############User Authentication
-
-from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate, login, logout
-from django.contrib import messages
-from .forms import CustomUserCreationForm
 
 def login_view(request):
     if request.method == 'POST':

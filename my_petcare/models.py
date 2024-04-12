@@ -8,8 +8,6 @@ class Service(models.Model):
 
     def __str__(self):
         return self.name
-        
-
 
 class BookedService(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
