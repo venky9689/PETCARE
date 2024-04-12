@@ -1,0 +1,12 @@
+from django.contrib import admin
+from .models import Service, BookedService
+
+class ServiceAdmin(admin.ModelAdmin):
+    list_display = ('name', 'description')  # Customize which fields to display in the admin list view
+
+admin.site.register(Service, ServiceAdmin)
+
+class BookedServiceAdmin(admin.ModelAdmin):
+    list_display = ('pet_name', 'service_date', 'additional_notes')  # Customize which fields to display in the admin list view
+
+admin.site.register(BookedService, BookedServiceAdmin)

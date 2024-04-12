@@ -1,0 +1,161 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Register - PetLover</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'my_petcare/img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Flaticon Font -->
+    <link href="{% static 'my_petcare/lib/flaticon/font/flaticon.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'my_petcare/css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    <div class="container-fluid">
+        <div class="row bg-secondary py-2 px-lg-5">
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-white px-3" href="#">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-white px-3" href="#">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-white px-3" href="#">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-white px-3" href="#">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-white pl-3" href="#">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row py-3 px-lg-5">
+            <div class="col-lg-4">
+                <a href="{% url 'home' %}" class="navbar-brand d-none d-lg-block">
+                    <h1 class="m-0 display-5 text-capitalize"><span class="text-primary">Pet</span>Lover</h1>
+                </a>
+            </div>
+            <div class="col-lg-8 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <div class="d-inline-flex flex-column text-center pr-3 border-right">
+                        <h6>Opening Hours</h6>
+                        <p class="m-0">8.00AM - 9.00PM</p>
+                    </div>
+                    <div class="d-inline-flex flex-column text-center px-3 border-right">
+                        <h6>Email Us</h6>
+                        <p class="m-0">info@example.com</p>
+                    </div>
+                    <div class="d-inline-flex flex-column text-center pl-3">
+                        <h6>Call Us</h6>
+                        <p class="m-0">+012 345 6789</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+    <!-- Register Form Start -->
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h2 class="text-center mb-4">Register</h2>
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" id="username" name="username" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password1">Password</label>
+                                <input type="password" id="password1" name="password1" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password2">Confirm Password</label>
+                                <input type="password" id="password2" name="password2" class="form-control" required>
+                            </div>
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn btn-primary">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Register Form End -->
+
+    <!-- Footer Start -->
+    <footer class="container-fluid bg-dark py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h2 class="text-white mb-4">About Us</h2>
+                    <p class="text-muted">Ad labore veniam tempor occaecat enim. Exercitation consectetur dolore anim laborum quis officia cupidatat ipsum. Nulla exercitation adipisicing non et in id deserunt aliquip ullamco reprehenderit cupidatat est cupidatat labore. Exercitation consectetur dolore anim laborum quis officia cupidatat ipsum.</p>
+                </div>
+                <div class="col-lg-4">
+                    <h2 class="text-white mb-4">Quick Links</h2>
+                    <div class="d-flex flex-column">
+                        <a href="{% url 'home' %}" class="text-muted mb-2">Home</a>
+                        <a href="{% url 'about' %}" class="text-muted mb-2">About</a>
+                        <a href="{% url 'service' %}" class="text-muted mb-2">Service</a>
+                        <a href="{% url 'price' %}" class="text-muted mb-2">Price</a>
+                        <a href="{% url 'booking' %}" class="text-muted mb-2">Booking</a>
+                        <a href="{% url 'contact' %}" class="text-muted mb-2">Contact</a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h2 class="text-white mb-4">Contact Info</h2>
+                    <p class="text-muted mb-2"><i class="fas fa-map-marker-alt mr-2"></i>123 Street, City, Country</p>
+                    <p class="text-muted mb-2"><i class="fas fa-envelope mr-2"></i>info@example.com</p>
+                    <p class="text-muted mb-2"><i class="fas fa-phone-alt mr-2"></i>+012 345 6789</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top rounded-pill" role="button">
+        <i class="fa fa-chevron-up"></i>
+    </a>
+    <!-- Back to Top -->
+
+    <!-- JavaScript Libraries -->
+    <script src="{% static 'my_petcare/lib/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'my_petcare/lib/jquery/jquery-migrate.min.js' %}"></script>
+    <script src="{% static 'my_petcare/lib/popper/popper.min.js' %}"></script>
+    <script src="{% static 'my_petcare/lib/bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <!-- Template Main Javascript File -->
+    <script src="{% static 'my_petcare/js/main.js' %}"></script>
+
+</body>
+
+</html>
