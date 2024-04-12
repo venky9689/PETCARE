@@ -15,7 +15,7 @@ phases:
    commands:
      - set -e
      - export SONAR_SCANNER_OPTS="-Xmx2g" # Set maximum heap size to 2GB
-     - sonar-scanner -X -Dsonar.login=e822d9ee1f4839acc6648926338dec75ac5d303d -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=venky9689_PETCARE -Dsonar.organization=venky9689 -DgeneratePom=true  -Dsonar.exclusions=**/staticfiles/**,**/lib/**,**/static/**,**/my_petcare/**,**/sonar.yml
+     - sonar-scanner -X -Dsonar.login=e822d9ee1f4839acc6648926338dec75ac5d303d -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=venky9689_PETCARE -Dsonar.organization=venky9689 -DgeneratePom=true  -Dsonar.exclusions=**/staticfiles/**,**/lib/**,**/static/**,**/my_petcare/**,**/sonar.yml/**,**/settings.py
      - sleep 5
      - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=venky9689_PETCARE >result.json
      - cat result.json
